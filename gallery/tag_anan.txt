@@ -1,0 +1,8 @@
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>, <lora:AnAn:1>  ,<lora:ani_:0.8>,
+natsumeanan,,
+1girl, solo, chibi, full body,
+black background, striped background, frame, border, banner, sparkle,
+pale skin,purple eyes, white hair, long hair, very long hair, hair over one eye, lolita fashion, gothic lolita, blue dress, frilled dress, off shoulder, long sleeves, wide sleeves, sleeves past fingers, frills, checkered clothes,headwear, hair ornament, hairband, frilled hairband, lolita hairband, black ribbon, neck ribbon, black bow, polka dot bow, jewelry, necklace, white footwear,dress bow,star hair ornament,hair ribbon，layered dress
+open mouth,   looking at viewer, standing,
+determined expression, serious look, clenching one fist, ready to fight 

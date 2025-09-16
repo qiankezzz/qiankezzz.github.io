@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>项目展示 | Sukuraba's Blog</title><meta name="author" content="Sukuraba"><meta name="copyright" content="Sukuraba"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的项目作品集这里展示了我在技术开发和创新方面的主要项目成果，涵盖了人工智能、Web开发、数据科学等多个领域。每个项目都体现了从理论学习到实际应用的完整过程。 🎨 AI 艺术项目Sukuraba Ema AI 艺术生成系统 技术栈: Python, Stable Diffusion, PyTorch, Gradio 项目描述: 开发了完整的AI艺术生成流水线，专门用于创作 Sukuraba Em">
+<meta property="og:type" content="website">
+<meta property="og:title" content="项目展示">
+<meta property="og:url" content="https://qiankezzz.github.io/projects/index.html">
+<meta property="og:site_name" content="Sukuraba&#39;s Blog">
+<meta property="og:description" content="我的项目作品集这里展示了我在技术开发和创新方面的主要项目成果，涵盖了人工智能、Web开发、数据科学等多个领域。每个项目都体现了从理论学习到实际应用的完整过程。 🎨 AI 艺术项目Sukuraba Ema AI 艺术生成系统 技术栈: Python, Stable Diffusion, PyTorch, Gradio 项目描述: 开发了完整的AI艺术生成流水线，专门用于创作 Sukuraba Em">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiankezzz.github.io/images/avatar.png">
+<meta property="article:published_time" content="2025-09-16T03:41:03.000Z">
+<meta property="article:modified_time" content="2025-09-16T03:58:52.887Z">
+<meta property="article:author" content="Sukuraba">
+<meta property="article:tag" content="computer science, AI art, research, internship, projects, sukuraba, tech, blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiankezzz.github.io/images/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/avatar.png"><link rel="canonical" href="https://qiankezzz.github.io/projects/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Sukuraba","link":"链接: ","source":"来源: Sukuraba's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '项目展示',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'projects'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E8%89%BA%E6%9C%AF/"><i class="fa-fw fas fa-palette"></i><span> AI艺术</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> 项目展示</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="page type-projects" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Sukuraba's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E8%89%BA%E6%9C%AF/"><i class="fa-fw fas fa-palette"></i><span> AI艺术</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> 项目展示</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">项目展示</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="我的项目作品集"><a href="#我的项目作品集" class="headerlink" title="我的项目作品集"></a>我的项目作品集</h1><p>这里展示了我在技术开发和创新方面的主要项目成果，涵盖了人工智能、Web开发、数据科学等多个领域。每个项目都体现了从理论学习到实际应用的完整过程。</p>
+<h2 id="🎨-AI-艺术项目"><a href="#🎨-AI-艺术项目" class="headerlink" title="🎨 AI 艺术项目"></a>🎨 AI 艺术项目</h2><h3 id="Sukuraba-Ema-AI-艺术生成系统"><a href="#Sukuraba-Ema-AI-艺术生成系统" class="headerlink" title="Sukuraba Ema AI 艺术生成系统"></a>Sukuraba Ema AI 艺术生成系统</h3><ul>
+<li><strong>技术栈</strong>: Python, Stable Diffusion, PyTorch, Gradio</li>
+<li><strong>项目描述</strong>: 开发了完整的AI艺术生成流水线，专门用于创作 Sukuraba Ema 系列角色</li>
+<li><strong>特色功能</strong>:<ul>
+<li>自定义模型训练和微调</li>
+<li>批量图像生成和后处理</li>
+<li>Web界面交互系统</li>
+<li>风格一致性控制</li>
+</ul>
+</li>
+<li><strong>成果展示</strong>: 已生成超过100张高质量艺术作品</li>
+<li><strong>在线体验</strong>: <a href="/categories/AI%E8%89%BA%E6%9C%AF/">查看作品集</a></li>
+</ul>
+<h2 id="🔬-深度学习项目"><a href="#🔬-深度学习项目" class="headerlink" title="🔬 深度学习项目"></a>🔬 深度学习项目</h2><h3 id="MNIST手写数字识别系统-⭐-A级项目"><a href="#MNIST手写数字识别系统-⭐-A级项目" class="headerlink" title="MNIST手写数字识别系统 ⭐ A级项目"></a>MNIST手写数字识别系统 ⭐ A级项目</h3><ul>
+<li><strong>技术栈</strong>: Python, PyTorch, CNN, Jupyter</li>
+<li><strong>项目描述</strong>: 基于卷积神经网络的手写数字识别系统</li>
+<li><strong>核心特性</strong>:<ul>
+<li>CNN网络架构设计与优化</li>
+<li>数据增强和正则化技术</li>
+<li>模型可视化和分析</li>
+<li>Web界面部署</li>
+</ul>
+</li>
+<li><strong>项目成果</strong>: 识别准确率达99.2%，训练时间优化至10分钟内</li>
+</ul>
+<h3 id="实时目标检测与跟踪系统"><a href="#实时目标检测与跟踪系统" class="headerlink" title="实时目标检测与跟踪系统"></a>实时目标检测与跟踪系统</h3><ul>
+<li><strong>技术栈</strong>: OpenCV, YOLO, DeepSORT, ROS2, Python</li>
+<li><strong>项目描述</strong>: 基于双目视觉的实时目标检测和多目标跟踪系统</li>
+<li><strong>技术亮点</strong>:<ul>
+<li>双目立体视觉深度估计</li>
+<li>YOLO目标检测算法优化</li>
+<li>DeepSORT多目标跟踪</li>
+<li>ROS2系统集成</li>
+</ul>
+</li>
+<li><strong>性能指标</strong>: 30 FPS实时处理，目标识别准确率70%+，定位精度99%+</li>
+</ul>
+<h3 id="股票价格预测系统"><a href="#股票价格预测系统" class="headerlink" title="股票价格预测系统"></a>股票价格预测系统</h3><ul>
+<li><strong>技术栈</strong>: Python, LSTM, Attention, Pandas, Matplotlib</li>
+<li><strong>项目描述</strong>: 基于深度学习的金融时间序列预测系统</li>
+<li><strong>核心技术</strong>:<ul>
+<li>LSTM网络架构</li>
+<li>Attention注意力机制</li>
+<li>多维特征工程</li>
+<li>风险评估模型</li>
+</ul>
+</li>
+<li><strong>项目成果</strong>: RMSE指标显著降低，方向预测准确率达65%</li>
+</ul>
+<h3 id="情感分析系统-⭐-98分优秀项目"><a href="#情感分析系统-⭐-98分优秀项目" class="headerlink" title="情感分析系统 ⭐ 98分优秀项目"></a>情感分析系统 ⭐ 98分优秀项目</h3><ul>
+<li><strong>技术栈</strong>: Python, BERT, Transformers, NLP</li>
+<li><strong>项目描述</strong>: 基于BERT模型的文本情感分析和分类系统</li>
+<li><strong>技术实现</strong>:<ul>
+<li>BERT预训练模型微调</li>
+<li>多分类标签预测</li>
+<li>中文文本处理</li>
+<li>模型解释性分析</li>
+</ul>
+</li>
+<li><strong>应用场景</strong>: 微博情感分析、产品评论分析</li>
+</ul>
+<h2 id="💻-全栈Web开发项目"><a href="#💻-全栈Web开发项目" class="headerlink" title="💻 全栈Web开发项目"></a>💻 全栈Web开发项目</h2><h3 id="大规模数据采集与分析平台"><a href="#大规模数据采集与分析平台" class="headerlink" title="大规模数据采集与分析平台"></a>大规模数据采集与分析平台</h3><ul>
+<li><strong>技术栈</strong>: Python, Django, Scrapy, Selenium, MySQL, Redis</li>
+<li><strong>项目描述</strong>: 面向在线教育行业的数据采集和分析平台</li>
+<li><strong>系统架构</strong>:<ul>
+<li>分布式爬虫系统(Scrapy + Selenium)</li>
+<li>RESTful API服务(Django REST Framework)</li>
+<li>高性能数据库(MySQL + Redis缓存)</li>
+<li>实时数据处理流水线</li>
+</ul>
+</li>
+<li><strong>项目规模</strong>: 采集31个网站，处理20000+条数据记录</li>
+<li><strong>核心价值</strong>: 为公司决策提供数据支持，提升业务效率</li>
+</ul>
+<h3 id="响应式学习管理平台-⭐-93分"><a href="#响应式学习管理平台-⭐-93分" class="headerlink" title="响应式学习管理平台 ⭐ 93分"></a>响应式学习管理平台 ⭐ 93分</h3><ul>
+<li><strong>技术栈</strong>: React, TypeScript, Node.js, Express, MongoDB</li>
+<li><strong>项目描述</strong>: 现代化的在线学习平台，支持多设备访问</li>
+<li><strong>功能模块</strong>:<ul>
+<li>用户注册登录系统</li>
+<li>课程管理和播放</li>
+<li>学习进度跟踪</li>
+<li>社区讨论功能</li>
+</ul>
+</li>
+<li><strong>设计特色</strong>: 响应式设计，移动端友好，用户体验优化</li>
+</ul>
+<h3 id="跨平台学习APP"><a href="#跨平台学习APP" class="headerlink" title="跨平台学习APP"></a>跨平台学习APP</h3><ul>
+<li><strong>技术栈</strong>: Flutter, Dart, RESTful API, SQLite</li>
+<li><strong>项目描述</strong>: 基于Flutter的跨平台移动学习应用</li>
+<li><strong>核心功能</strong>:<ul>
+<li>视频课程播放</li>
+<li>离线下载缓存</li>
+<li>学习笔记同步</li>
+<li>社交学习功能</li>
+</ul>
+</li>
+<li><strong>技术特点</strong>: 一套代码多平台运行，原生性能体验</li>
+</ul>
+<h2 id="📊-大数据与分布式系统"><a href="#📊-大数据与分布式系统" class="headerlink" title="📊 大数据与分布式系统"></a>📊 大数据与分布式系统</h2><h3 id="分布式数据处理系统-⭐-95分"><a href="#分布式数据处理系统-⭐-95分" class="headerlink" title="分布式数据处理系统 ⭐ 95分"></a>分布式数据处理系统 ⭐ 95分</h3><ul>
+<li><strong>技术栈</strong>: Hadoop, MapReduce, HBase, Kafka, Flume</li>
+<li><strong>项目描述</strong>: 构建高可用的分布式数据处理和存储系统</li>
+<li><strong>系统组件</strong>:<ul>
+<li>Hadoop分布式文件系统</li>
+<li>MapReduce并行计算框架</li>
+<li>HBase NoSQL数据库</li>
+<li>Kafka消息队列系统</li>
+</ul>
+</li>
+<li><strong>处理能力</strong>: 支持TB级数据处理，千万级并发访问</li>
+</ul>
+<h3 id="实时数据流处理系统"><a href="#实时数据流处理系统" class="headerlink" title="实时数据流处理系统"></a>实时数据流处理系统</h3><ul>
+<li><strong>技术栈</strong>: Apache Kafka, Apache Flume, Python, Elasticsearch</li>
+<li><strong>项目描述</strong>: 构建实时数据采集、处理和分析流水线</li>
+<li><strong>技术架构</strong>:<ul>
+<li>Flume数据采集</li>
+<li>Kafka流式处理</li>
+<li>实时计算引擎</li>
+<li>Elasticsearch搜索分析</li>
+</ul>
+</li>
+<li><strong>应用场景</strong>: 实时用户行为分析，业务监控告警</li>
+</ul>
+<h2 id="🏆-竞赛项目与获奖"><a href="#🏆-竞赛项目与获奖" class="headerlink" title="🏆 竞赛项目与获奖"></a>🏆 竞赛项目与获奖</h2><h3 id="全国大学生数学建模竞赛-省级奖项"><a href="#全国大学生数学建模竞赛-省级奖项" class="headerlink" title="全国大学生数学建模竞赛 | 省级奖项"></a>全国大学生数学建模竞赛 | 省级奖项</h3><ul>
+<li><strong>项目主题</strong>: 基于机器学习的复杂系统建模与优化</li>
+<li><strong>技术方法</strong>: 多元统计分析、优化算法、仿真建模</li>
+<li><strong>解决方案</strong>: 创新性地将机器学习与传统数学建模结合</li>
+<li><strong>获奖理由</strong>: 模型创新性强，结果准确可靠</li>
+</ul>
+<h3 id="全国大学生大数据技能竞赛-省级奖项"><a href="#全国大学生大数据技能竞赛-省级奖项" class="headerlink" title="全国大学生大数据技能竞赛 | 省级奖项"></a>全国大学生大数据技能竞赛 | 省级奖项</h3><ul>
+<li><strong>参赛赛道</strong>: Python数据分析与挖掘</li>
+<li><strong>技术展示</strong>: 端到端数据科学项目</li>
+<li><strong>核心技能</strong>: 数据清洗、特征工程、模型构建、结果可视化</li>
+<li><strong>竞赛成果</strong>: 在激烈竞争中脱颖而出，展现数据科学实力</li>
+</ul>
+<h2 id="🛠️-开源贡献与技术分享"><a href="#🛠️-开源贡献与技术分享" class="headerlink" title="🛠️ 开源贡献与技术分享"></a>🛠️ 开源贡献与技术分享</h2><h3 id="GitHub开源项目"><a href="#GitHub开源项目" class="headerlink" title="GitHub开源项目"></a>GitHub开源项目</h3><ul>
+<li><strong>贡献统计</strong>: 参与20+ 个开源项目</li>
+<li><strong>主要领域</strong>: AI工具、Web框架、数据处理库</li>
+<li><strong>代码质量</strong>: 遵循最佳实践，注重代码可读性</li>
+<li><strong>社区影响</strong>: 累计获得100+ Stars</li>
+</ul>
+<h3 id="技术博客与教程"><a href="#技术博客与教程" class="headerlink" title="技术博客与教程"></a>技术博客与教程</h3><ul>
+<li><strong>文章产出</strong>: 50+ 篇高质量技术文章</li>
+<li><strong>内容覆盖</strong>: 机器学习、Web开发、系统设计</li>
+<li><strong>阅读量</strong>: 累计10000+ 次阅读</li>
+<li><strong>知识分享</strong>: 帮助技术社区新人成长</li>
+</ul>
+<h2 id="🎯-核心技术能力矩阵"><a href="#🎯-核心技术能力矩阵" class="headerlink" title="🎯 核心技术能力矩阵"></a>🎯 核心技术能力矩阵</h2><h3 id="编程语言精通度"><a href="#编程语言精通度" class="headerlink" title="编程语言精通度"></a>编程语言精通度</h3><table>
+<thead>
+<tr>
+<th>语言</th>
+<th>熟练度</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>AI&#x2F;ML、数据科学、后端开发</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>⭐⭐⭐⭐</td>
+<td>企业级应用、Android开发</td>
+</tr>
+<tr>
+<td>JavaScript&#x2F;TypeScript</td>
+<td>⭐⭐⭐⭐</td>
+<td>前端开发、Node.js后端</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>⭐⭐⭐</td>
+<td>算法竞赛、系统编程</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>⭐⭐⭐</td>
+<td>Flutter跨平台开发</td>
+</tr>
+</tbody></table>
+<h3 id="技术框架与工具"><a href="#技术框架与工具" class="headerlink" title="技术框架与工具"></a>技术框架与工具</h3><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>技术栈</th>
+<th>项目应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>深度学习</td>
+<td>PyTorch, TensorFlow, OpenCV</td>
+<td>计算机视觉、NLP项目</td>
+</tr>
+<tr>
+<td>Web后端</td>
+<td>Django, Flask, Express.js</td>
+<td>企业级Web应用</td>
+</tr>
+<tr>
+<td>Web前端</td>
+<td>React, Vue.js, TypeScript</td>
+<td>现代化单页应用</td>
+</tr>
+<tr>
+<td>移动开发</td>
+<td>Flutter, React Native</td>
+<td>跨平台移动应用</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>MySQL, PostgreSQL, MongoDB, Redis</td>
+<td>数据存储与缓存</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>Hadoop, Spark, Kafka, HBase</td>
+<td>分布式数据处理</td>
+</tr>
+<tr>
+<td>云原生</td>
+<td>Docker, Kubernetes, AWS</td>
+<td>容器化部署</td>
+</tr>
+</tbody></table>
+<h2 id="📈-项目影响力与成果"><a href="#📈-项目影响力与成果" class="headerlink" title="📈 项目影响力与成果"></a>📈 项目影响力与成果</h2><h3 id="量化成果"><a href="#量化成果" class="headerlink" title="量化成果"></a>量化成果</h3><ul>
+<li><strong>代码量</strong>: 累计编写50000+ 行高质量代码</li>
+<li><strong>项目数</strong>: 完成15+ 个完整项目</li>
+<li><strong>用户服务</strong>: 项目累计服务1000+ 用户</li>
+<li><strong>性能优化</strong>: 平均提升系统性能30%+</li>
+</ul>
+<h3 id="技术突破"><a href="#技术突破" class="headerlink" title="技术突破"></a>技术突破</h3><ul>
+<li><strong>算法优化</strong>: 多个项目中实现算法性能提升</li>
+<li><strong>系统架构</strong>: 设计高可用、高并发的分布式系统</li>
+<li><strong>用户体验</strong>: 前端项目获得用户高度认可</li>
+<li><strong>创新应用</strong>: 在AI艺术领域探索技术与艺术结合</li>
+</ul>
+<hr>
+<h2 id="💡-项目开发心得"><a href="#💡-项目开发心得" class="headerlink" title="💡 项目开发心得"></a>💡 项目开发心得</h2><p>每个项目都是一次完整的技术实践，从需求分析到系统设计，从编码实现到测试部署，每个环节都充满了学习和成长的机会。通过这些项目，我不仅掌握了扎实的技术技能，更重要的是培养了系统性思维和解决复杂问题的能力。</p>
+<p><strong>持续更新中…</strong> 更多精彩项目正在开发中，敬请期待！</p>
+<p>如果您对任何项目感兴趣或希望合作，欢迎通过 <a target="_blank" rel="noopener" href="https://github.com/qiankezzz">GitHub</a> 或邮件 <a href="mailto:&#x6c;&#x69;&#110;&#x6a;&#117;&#110;&#x79;&#117;&#x32;&#x33;&#x33;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#109;">linjunyu233@gmail.com</a> 联系我！</p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sukuraba</div><div class="author-info-description">技术与艺术的融合者<br>Computer Science Researcher & AI Artist</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qiankezzz"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/qiankezzz" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:linjunyu233@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的技术与艺术世界！这里分享计算机科学研究心得和AI艺术创作。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览"><img src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画作品集 - 近期创作总览"/></a><div class="content"><a class="title" href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览">AI绘画作品集 - 近期创作总览</a><time datetime="2024-09-16T10:00:00.000Z" title="发表于 2024-09-16 18:00:00">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema"><img src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 绘画作品集 - Sukuraba Ema"/></a><div class="content"><a class="title" href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema">AI 绘画作品集 - Sukuraba Ema</a><time datetime="2024-09-16T04:00:00.000Z" title="发表于 2024-09-16 12:00:00">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列"><img src="/gallery/00017-1366028681.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Noa 角色系列"/></a><div class="content"><a class="title" href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列">AI绘画 - Noa 角色系列</a><time datetime="2024-09-10T05:40:00.000Z" title="发表于 2024-09-10 13:40:00">2024-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列"><img src="/gallery/00001-2874858076.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Sheri 角色系列"/></a><div class="content"><a class="title" href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列">AI绘画 - Sheri 角色系列</a><time datetime="2024-09-10T05:20:00.000Z" title="发表于 2024-09-10 13:20:00">2024-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列"><img src="/gallery/00039-587261749.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Anan 角色系列"/></a><div class="content"><a class="title" href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列">AI绘画 - Anan 角色系列</a><time datetime="2024-09-09T07:00:00.000Z" title="发表于 2024-09-09 15:00:00">2024-09-09</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI%E8%89%BA%E6%9C%AF/"><span class="card-category-list-name">AI艺术</span><span class="card-category-list-count">7</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Sukuraba-Ema/" style="font-size: 1.1em; color: #999">Sukuraba Ema</a> <a href="/tags/Meru/" style="font-size: 1.1em; color: #999">Meru</a> <a href="/tags/%E6%95%B0%E5%AD%97%E8%89%BA%E6%9C%AF/" style="font-size: 1.1em; color: #999">数字艺术</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.5em; color: #99a9bf">AI绘画</a> <a href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/" style="font-size: 1.3em; color: #99a1ac">角色设计</a> <a href="/tags/Anan/" style="font-size: 1.1em; color: #999">Anan</a> <a href="/tags/Sheri/" style="font-size: 1.1em; color: #999">Sheri</a> <a href="/tags/Hiro/" style="font-size: 1.1em; color: #999">Hiro</a> <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" style="font-size: 1.1em; color: #999">作品集</a> <a href="/tags/Noa/" style="font-size: 1.1em; color: #999">Noa</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/09/">
+            <span class="card-archive-list-date">
+              九月 2024
+            </span>
+            <span class="card-archive-list-count">7</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-16T04:37:04.335Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2025 By Sukuraba</span></div><div class="footer_custom_text">技术改变世界，艺术温暖人心</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

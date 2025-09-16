@@ -1,0 +1,8 @@
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>, <lora:meruru:0.8>  ,<lora:ani_:0.8>,
+meruru,
+1girl, solo, chibi, full body,
+black background, striped background, frame, border, banner, sparkle,
+veil,latin cross,cross earrings,long hair,grey hair,grey eyes,black choker,white dress,frilled dress,long sleeves,wide sleeves,frilled sleeves,frills,sash,cross,white pantyhose,white footwear,
+open mouth,  wavy mouth, looking at viewer, standing,
+crying, sad expression

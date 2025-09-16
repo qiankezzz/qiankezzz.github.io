@@ -1,0 +1,8 @@
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>, <lora:Noah:1>  ,<lora:ani_:0.8>,
+jougasaki,,
+1girl, solo, chibi, full body,
+black background, striped background, frame, border, banner, sparkle,
+white hair, multicolored hair, streaked hair, gradient hair, long hair, twintails, low twintails, braid, heterochromia, multicolored eyes, black hat, black dress, skirt, collared shirt, long sleeves, black jacket, buttons, black pantyhose, platform footwear, multicolored footwear, hair ornament, scrunchie, polka dot, polka dot bow, multiple hair bows, black ribbon, hair ribbon, button badge, paintbrush,asymmetrical footwear,
+open mouth,   looking at viewer, standing,
+determined expression, serious look, clenching one fist, ready to fight 

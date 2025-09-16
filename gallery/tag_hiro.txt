@@ -1,0 +1,8 @@
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>,  <lora:Hiro:1> ,<lora:ani_:0.8>,
+nikaido hiro,
+1girl, solo, chibi, full body,
+black background, striped background, frame, border, banner, sparkle,
+hair ornament, long sleeves, red eyes, black hair, long hair, hair flower, shirt, skirt, single gloves, white gloves, necktie, black pantyhose
+open mouth, slight smile,  looking at viewer,
+hands together, praying pose, hopeful expression, sparkling eyes

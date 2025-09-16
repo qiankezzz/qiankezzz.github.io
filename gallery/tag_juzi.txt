@@ -1,0 +1,17 @@
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>,  <lora:togawa_sakiko_ilxl:1>, <lora:ani_:0.8>,
+togawa sakiko,
+1girl, solo, full body, chibi,
+black background, striped background, frame, border, banner, sparkle,
+white shirt, black ribbon, plaid skirt, neck ribbon, long sleeves,
+open mouth, slight smile, looking at viewer,
+yawning, sleepy, tears from yawning, stretching
+
+masterpiece, best quality, newest, absurdres, highres, safe,
+<lora:c_:0.6>,  <lora:togawa_sakiko_ilxl:1>, <lora:ani_:0.8>,
+togawa sakiko,
+1girl, solo, full body, chibi,
+black background, striped background, frame, border, banner, sparkle,
+black ribbon, red shirt, black ascot, puffy short sleeves, black corset, black dress, black gloves,
+open mouth, slight smile, looking at viewer,
+yawning, sleepy, tears from yawning, stretching
