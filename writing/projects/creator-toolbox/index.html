@@ -8,12 +8,6 @@
     <title>Creator Toolbox · xte12329</title>
     <link rel="stylesheet" href="../../../styles.css" />
     <link rel="stylesheet" href="../../../article.css" />
-    <style>
-      /* 文章内配图样式（仅本页使用，避免影响全站） */
-      .article-figure { margin: 34px 0 42px; }
-      .article-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
-      .article-figure figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.85; }
-    </style>
   </head>
   <body class="article-page">
     <a class="skip-link" href="#main">跳转到文章</a>
@@ -33,90 +27,92 @@
             <p class="article-byline">xte12329 · 2026.10</p>
           </header>
           <div class="article-body">
-
             <h2>项目概览</h2>
-            <p>Creator Toolbox 是一个<strong>本地部署的 AI 绘画作品管理工具</strong>，面向个人创作者，用于集中管理本地积累的 AI 生成图片（Stable Diffusion 与 ComfyUI 的输出），解决「图片越攒越多、找不到、理不清」的问题。我在项目中负责<strong>数据模型、后端接口、前端界面与部署链路</strong>的设计与实现。</p>
-            <p>它不做生成，只解决生成之后的事：把图片、参数、角色和标签组织成一个可以反复检索的私人图库。</p>
+            <p>我平时会用 Stable Diffusion 和 ComfyUI 生成图片。图片积累多了以后，想找某张图，常常得翻文件夹，还要记得它用过什么模型和参数。Creator Toolbox 就是为了解决这件事：把图片、生成信息、角色和标签放在同一个本地图库里管理。</p>
+            <p>我主要负责数据模型、后端接口、前端界面和部署链路的设计与实现。这个工具不负责生成图片，重点是把生成之后的整理和查找做好。</p>
 
             <figure class="article-figure">
-              <img src="../../../assets/projects/creator-toolbox/dashboard.png" alt="Creator Toolbox 的 Dashboard 页面，顶部为图片总数、今日新增、本周新增与收藏四张统计卡片，下方为最近导入的图片网格（图片内容已作模糊处理）。" loading="lazy" />
-              <figcaption>Dashboard：图库规模与近期导入概览。为保护作品内容，画面中的图片区域已作模糊处理。</figcaption>
+              <img src="../../../assets/projects/creator-toolbox/dashboard.png" alt="Creator Toolbox 的 Dashboard：显示图库统计和已模糊处理的近期图片网格。" loading="lazy" />
             </figure>
 
             <h2>问题与约束</h2>
-            <p>AI 绘画的工作流会产生大量废稿与迭代稿：同一角色反复出图、参数散落在 PNG 元数据里、需要按角色或语义反复检索。通用相册工具无法理解 prompt、seed、LoRA、分区这些概念，而云端管理工具又要求把私人作品上传到别人的服务器。</p>
-            <p>因此项目一开始就定下三条硬约束：</p>
+            <p>一张图可能会有好几轮修改，参数又常常保存在 PNG 元数据里。普通相册看不懂 prompt、seed、LoRA 这些信息；用云端图库的话，图片还得传到别人的服务器上。所以我给项目定了几个限制：</p>
             <ul class="article-points">
-              <li><strong>核心处理在本机完成</strong>——元数据解析、向量化、反向打标不依赖第三方云端图库服务。</li>
-              <li><strong>原图不降质</strong>——库内保存原图，另生成 WebP 派生图供浏览，减少传输体积。</li>
-              <li><strong>要能真实用起来</strong>——不是演示用的样品，需要应对上千张量级的图库。</li>
+              <li>图片和元数据留在本机处理，不依赖第三方云图库。</li>
+              <li>保留原图，另外生成 WebP 预览图，浏览时少传一些数据。</li>
+              <li>按自己实际会用的图库规模来做，不只完成一个演示页面。</li>
             </ul>
 
-            <h2>我的工作</h2>
-            <p><strong>数据层。</strong>以 SQLite 存储图片元数据（正向与负向 prompt、模型、LoRA 链、采样器、seed、分区等），原图与派生的缩略图、预览图分目录存放；图片按内容哈希命名，重复导入自动识别并跳过。</p>
-            <p><strong>元数据解析。</strong>解析 PNG 的 tEXt/iTXt 文本块，还原 ComfyUI 与 WebUI 两种工作流格式，把参数结构化后落库，而不是只当作一段文本保存。</p>
-            <p><strong>图库浏览。</strong>瀑布流布局，支持按分区、来源、模型、标签、角色筛选与排序，以及批量收藏、改分区、加标签、删除；详情页支持在当前筛选结果内用方向键逐张翻阅，不需要反复返回列表。</p>
+            <h2>我做的部分</h2>
+            <p>我用 SQLite 存图片的 prompt、模型、LoRA、采样器、seed 和分区等信息。原图、缩略图和预览图分开放；导入时按内容哈希识别重复文件，避免同一张图被重复收录。</p>
+            <p>PNG 里的参数有不同的保存格式。我分别解析 tEXt 和 iTXt 数据块，处理 ComfyUI、WebUI 的工作流信息，再把结果拆成字段存到数据库里，之后才方便筛选和查看。</p>
+            <p>图库按图片卡片浏览，可以按分区、来源、模型、标签和角色筛选、排序，也能批量收藏、改分区、加标签或删除。打开图片详情后，我可以用方向键在当前筛选结果里前后翻，不用每次回列表。</p>
 
             <figure class="article-figure">
-              <img src="../../../assets/projects/creator-toolbox/image-detail.png" alt="图片详情页，左侧为作品大图，右侧为文件信息、参数卡片与模型链结，文件名、参数和模型信息均已作模糊处理。" loading="lazy" />
-              <figcaption>图片详情页：左侧作品，右侧由元数据还原出的参数与模型链结。文件名、采样参数与模型信息已作模糊处理。</figcaption>
+              <img src="../../../assets/projects/creator-toolbox/image-detail.png" alt="图片详情页：显示已模糊处理的作品预览、文件信息、生成参数和模型链。" loading="lazy" />
             </figure>
 
-            <p><strong>语义搜索。</strong>集成 CLIP（<code>clip-vit-base-patch32</code>）为每张图计算图像向量，支持用自然语言描述来找图；向量写入数据库，检索时按余弦相似度排序。</p>
-            <p><strong>角色归档。</strong>按「触发词 → 角色」的映射自动归档图片，并维护可持续扩展的角色卡。这里我做了取舍：<strong>不做模糊的语义归并</strong>，而是先用固定触发词精确匹配。因为对上万张图做全量语义聚类既慢又难以解释，而创作者其实很清楚自己要找的角色叫什么。</p>
+            <p>我还接入了 CLIP（<code>clip-vit-base-patch32</code>），给图片计算向量。现在可以输入一段自然语言描述找相近的图，系统按余弦相似度排列结果。</p>
+            <p>角色归档用“触发词对应角色”的方式处理。我没有做自动语义聚类，而是先用明确的触发词匹配。这样结果比较容易检查；遇到冷门角色时，再手动补触发词。</p>
 
             <figure class="article-figure">
-              <img src="../../../assets/projects/creator-toolbox/characters.png" alt="角色归档页面，以卡片网格展示按触发词聚合的角色，每张卡片含角色名、触发词与各分区图片数量（卡片内容已作模糊处理）。" loading="lazy" />
-              <figcaption>角色归档：每张角色卡由触发词聚合而成，并统计各分区数量。角色名、触发词与画面内容已作模糊处理。</figcaption>
+              <img src="../../../assets/projects/creator-toolbox/characters.png" alt="角色归档页面：已模糊处理的角色卡片按触发词整理，并显示分区统计。" loading="lazy" />
             </figure>
 
-            <p><strong>标签工作台。</strong>把 Danbooru 标签库（约 5 万条）按语义划分为推荐、外观、服饰、动作、表情、镜头、场景、光线、风格、角色/IP 等类别，附中文翻译，支持中英文双向查询，并可直接组装成 prompt 导出成文本。</p>
+            <p>标签工作台整理了 Danbooru 的近 5 万条标签。我把标签分成外观、服饰、动作、表情、镜头、场景、光线和风格等类别，补上中文翻译，也支持中英文查询。选好的标签可以调权重，再组合成 prompt 导出。</p>
 
-            <p><strong>批量反向打标。</strong>集成 WD14 Tagger 在本机做反向推理，从图片反推标签，结果同样按词库分类并配中文翻译，便于快速整理一批来源不明的图片。</p>
+            <figure class="article-figure">
+              <img src="../../../assets/projects/creator-toolbox/tag-composer.png" alt="标签工作台：左侧检索和筛选标签，右侧组合已选标签并调整权重。" loading="lazy" />
+            </figure>
 
-            <p><strong>部署。</strong>用单个 Node.js 进程同时承担前端静态托管与 API 反向代理，并加了一层访问密钥网关；对局域网提供 Caddy 的 HTTPS 入口，对外通过 Cloudflare Tunnel 暴露，后端只监听 <code>127.0.0.1</code>，不直接对外。</p>
+            <p>整理旧图时，我会用 WD14 Tagger 在本机批量反推标签。结果按词库分类并带中文翻译，遇到来源或参数不清楚的图片时，能省下一些手工整理时间。</p>
 
-            <h2>关键选择</h2>
-            <p><strong>一、离线环境下的模型加载。</strong>部署环境无法直连 HuggingFace。最初的表现是：每次导入图片都会「卡」很久，日志显示程序在反复尝试联网校验模型文件。当时的模型加载方式会触发联网请求，而加载异常不会被 <code>lru_cache</code> 缓存，于是<strong>每张图都要重试一遍并等待超时</strong>。</p>
-            <p>处理方式是：优先以 <code>local_files_only=True</code> 从本地缓存加载，失败才回退联网，并给加载失败加一段冷却期；同时在服务启动时后台预热模型与标签词库。改造后，模型加载不再落在用户操作的路径上。</p>
+            <figure class="article-figure">
+              <img src="../../../assets/projects/creator-toolbox/reverse-prompt.png" alt="批量反向打标界面：左侧是待处理队列，中间显示当前图片，右侧列出反推并分类后的标签。" loading="lazy" />
+            </figure>
 
-            <p><strong>二、导入性能：从「能跑」到「能连续用」。</strong>做性能剖析后发现，单张图片的导入耗时集中在两处：标签词库解析（对约 5 万个词条逐个跑 Python 循环，并反复拼接字符串）和派生图生成（同一张原图被完整解码两次）。</p>
-            <p>前者改为预编译正则——把分类词表合并成单条正则交给 C 层扫描、把敏感词拆成「单词集合 + 短语组」、用边界判断替代字符串拼接；后者改成一次解码共用，并对 JPEG 启用 <code>draft</code>，让解码器直接按比例降采样。再把「派生图生成」与「CLIP 向量化」这两件互不依赖的事放进线程池并行。</p>
-            <p>实测数据（13.4 MB 大图，本机直连后端，非公网链路）：</p>
+            <p>部署时，我用一个 Node.js 进程托管前端并代理 API，再用访问密钥做一道保护。局域网 HTTPS 入口由 Caddy 提供，外网访问走 Cloudflare Tunnel；后端只监听 <code>127.0.0.1</code>，不直接暴露到公网。</p>
+
+            <h2>几个实现上的选择</h2>
+            <p><strong>模型加载。</strong>部署机器连不上 Hugging Face。刚开始每次导入都会等很久，日志里能看到程序反复联网检查模型。失败的加载没有被 <code>lru_cache</code> 缓存，下一张图又会重试一次。</p>
+            <p>我改成先从本地缓存加载（<code>local_files_only=True</code>），找不到时再尝试联网；加载失败后加冷却时间，避免每张图都等超时。服务启动时也会在后台预热模型和标签词库。</p>
+
+            <p><strong>导入速度。</strong>剖析后我发现，耗时主要花在两处：解析近 5 万条标签时逐项运行 Python 循环、反复拼字符串；生成预览图时，同一张原图又被完整解码了一遍。</p>
+            <p>我把标签匹配改成预编译正则，并减少字符串处理；图片只解码一次，JPEG 则用 <code>draft</code> 先降采样。生成预览图和计算 CLIP 向量也放到线程池并行处理。</p>
+            <p>下面这组数据来自一张 13.4 MB 的图片，由本机直接连接后端测得，不经过公网链路：</p>
             <ul class="article-points">
-              <li>词库解析：<strong>5.37s → 2.01s</strong></li>
-              <li>单张导入（服务刚重启后的首次）：约 <strong>9s → 2.88s</strong></li>
-              <li>稳态单张约 <strong>2.1s</strong>；3 张并行处理总耗时 <strong>2.62s</strong></li>
+              <li>标签解析从 5.37 秒降到 2.01 秒。</li>
+              <li>服务重启后的首次导入从约 9 秒降到 2.88 秒。</li>
+              <li>稳定运行时单张约 2.1 秒；3 张并行处理共 2.62 秒。</li>
             </ul>
 
-            <p><strong>三、受限链路下的上传与下载。</strong>这是踩坑最多的部分。项目通过 Cloudflare Tunnel 对外，链路上有两道现实约束。</p>
-            <p><em>上传</em>：我曾把前端改成 3 并发上传，结果在弱网下每张都被拖长，并出现 Cloudflare <strong>HTTP 524 超时</strong>；失败后重试又整包重传，进一步挤占带宽。改为<strong>串行上传</strong>后，总吞吐不变（受限于上行带宽），但每个请求都能更快结束，问题消失。后来我加了分段耗时日志，能一眼区分「链路慢」和「后端慢」——实测那条链路上传 6.9 MB 需要 <strong>123 秒</strong>，而服务端处理只用了 <strong>1.1 秒</strong>，说明瓶颈完全在链路上，此时继续优化后端已经没有意义。</p>
-            <p><em>下载</em>：移动端点 <code>&lt;a download&gt;</code> 时，浏览器会把任务交接给系统下载器，并在十几毫秒内掐掉自己那条 HTTP/2 流，服务端数据没人读，TCP 接收窗口塌陷——表现为进度永远停在 <strong>0 B/s</strong>。改成页面内 fetch 读取后此问题消失，但新问题是对大文件会先把整包收进页面再落盘，<strong>下载管理器看不到，也无法按原方式管理下载</strong>。最终方案是按体积分流：<strong>超过 32 MB 交给浏览器原生下载</strong>，小文件继续走页面内读取以规避握手掐断。</p>
+            <p><strong>公网传输。</strong>项目通过 Cloudflare Tunnel 对外提供访问，上传和下载都遇到过链路问题。</p>
+            <p>上传时我试过 3 路并发。弱网下每个请求都变慢，还撞上 Cloudflare HTTP 524；失败重试又要重新传文件。我改回串行后，整体吞吐没有变，但单个请求能在超时前结束。后来我加了分段计时，发现上传 6.9 MB 要 123 秒，服务端处理只花 1.1 秒，慢的部分在网络链路，不在后端。</p>
+            <p>移动端下载也有个问题：点 <code>&lt;a download&gt;</code> 后，浏览器会把下载交给系统，自己的 HTTP/2 连接很快就关闭，页面上进度停在 0 B/s。我试过改用页面内 fetch，虽然能下载，但大文件会先全部读进页面，系统下载管理器也无法管理它。现在我按文件大小分流：超过 32 MB 用浏览器原生下载，小文件用页面内读取。</p>
 
-            <h2>验证与结果</h2>
+            <h2>结果和目前的不足</h2>
             <ul class="article-points">
-              <li><strong>功能验证</strong>：主要模块均以真实图库跑通，导入 → 检索 → 打标 → 翻阅形成闭环。</li>
-              <li><strong>性能验证</strong>：上文数据均由日志与剖析输出复现，测试口径为本机直连后端。</li>
-              <li><strong>规模</strong>：写作时本地库为 1479 张图片、40 个角色。</li>
-              <li><strong>交付状态</strong>：自用运行中，尚未公开演示环境。</li>
+              <li>导入、检索、打标和图片翻阅都在自己的图库里跑通过。</li>
+              <li>性能数据来自日志和剖析记录，测试时本机直连后端。</li>
+              <li>写这篇文章时，图库里有 1479 张图片和 40 个角色。</li>
+              <li>目前是自用工具，还没有公开演示环境。</li>
             </ul>
-            <p>目前的局限也很明确：</p>
+            <p>现在还有几个没解决的地方：</p>
             <ul class="article-points">
-              <li>性能数据都是<strong>本机直连</strong>口径，公网访问受隧道带宽支配，不能直接套用。</li>
-              <li>角色归档依赖触发词，未做语义聚类，冷门角色需要手工补触发词。</li>
-              <li>单用户单机设计，没有并发用户、权限体系与自动备份机制。</li>
-              <li>语义检索质量受限于 CLIP 对动漫内容的理解，长句描述的效果一般。</li>
+              <li>这里的性能数据是本机直连结果；公网速度还要看隧道带宽。</li>
+              <li>角色归档靠触发词，冷门角色需要我手动补词。</li>
+              <li>工具目前按单人、单机使用设计，还没有并发用户、权限体系和自动备份。</li>
+              <li>CLIP 对动漫图片和长句描述的理解有限，语义搜索结果有时不够准。</li>
             </ul>
 
-            <h2>复盘</h2>
-            <p>这个项目让我最深的体会是：<strong>性能问题要靠数据定位，而不是靠直觉</strong>。最初我以为导入慢是 AI 推理的锅，剖析之后才发现大头在标签词库解析和重复解码；后期加上分段日志后，又证明公网场景下瓶颈根本不在后端。</p>
-            <p>另一个体会是<strong>约束会改变最优解</strong>。并发在局域网是常识，在带宽受限的隧道上反而有害；<code>&lt;a download&gt;</code> 在桌面端是最省事的写法，在移动端却会直接坏事。同一个技术选择在不同链路上结论完全相反，所以必须先把链路测清楚再动手。</p>
-            <p>下一步打算：给角色归档加一层可解释的候选推荐，而不是全自动归并；把公网下载换成流式写盘，兼顾内存与进度；补上数据库备份与导出。</p>
+            <h2>回头看</h2>
+            <p>我一开始以为导入慢主要是模型推理造成的。实际剖析后，标签解析和图片重复解码才是更明显的耗时；公网传输也一样，分段计时后才看出服务端处理很快，主要时间花在链路上。以后遇到性能问题，我会先把各阶段的时间记下来，再决定要优化哪里。</p>
+            <p>上传和下载也让我发现，局域网里合适的做法不一定适合公网。并发上传在带宽有限时没有变快，移动端的原生下载行为也和桌面端不一样，需要按实际链路来选方案。</p>
+            <p>接下来我想给角色归档加可解释的候选推荐，也要补上数据库备份和导出。公网大文件下载则还需要改成流式写盘。</p>
 
-            <h2>参考与链接</h2>
+            <h2>相关项目</h2>
             <p>GitHub 主页：<a href="https://github.com/qiankezzz" target="_blank" rel="noopener noreferrer">github.com/qiankezzz</a></p>
-            <p>涉及的第三方组件与模型：ComfyUI 与 WebUI 的输出格式、CLIP（<code>openai/clip-vit-base-patch32</code>）、WD14 Tagger、Danbooru 标签库。</p>
-
+            <p>项目涉及 ComfyUI 和 WebUI 的输出格式、CLIP（<code>openai/clip-vit-base-patch32</code>）、WD14 Tagger 与 Danbooru 标签库。</p>
           </div>
         </article>
         <nav class="article-next" aria-label="文章导航"><a href="../../../#writing">← 返回文章与记录</a></nav>
