@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101725" />
+    <meta name="description" content="整合包档案馆：把 Minecraft 模组服务器九天的游玩数据做成可浏览的静态网站，记录数据采集、前端设计与公网部署的完整过程。" />
+    <title>整合包档案馆 · xte12329</title>
+    <link rel="stylesheet" href="../../../styles.css" />
+    <link rel="stylesheet" href="../../../article.css" />
+    <style>
+      /* 本项目新增：配图与行内代码样式。若希望统一维护，可整段移入 article.css。 */
+      .article-figure { margin: 34px 0 42px; }
+      .article-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 5px; background: #0d1420; }
+      .article-figure figcaption { margin-top: 12px; color: #7e959e; font: 11px 'DM Mono', monospace; letter-spacing: .06em; line-height: 1.9; }
+      .article-body code { padding: 2px 6px; border: 1px solid var(--line); border-radius: 3px; background: rgba(255, 255, 255, .04); color: #cfe6dd; font: 13px 'DM Mono', monospace; }
+      .article-figure--phone { max-width: 340px; }
+    </style>
+  </head>
+  <body class="article-page">
+    <a class="skip-link" href="#main">跳转到文章</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="../../../" aria-label="xte12329，返回首页"><span class="brand-mark" aria-hidden="true">x<span>·</span></span><span>xte12329</span></a>
+        <nav class="site-nav" aria-label="主导航"><a href="../../../#about">关于</a><a href="../../../#journey">学习与实践</a><a href="../../../#writing">文章</a><a href="../../../#contact">联系</a></nav>
+        <a class="header-link" href="https://github.com/qiankezzz" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </header>
+      <main class="article-main" id="main">
+        <a class="article-back" href="../../../#writing">← 返回文章与记录</a>
+        <article>
+          <header class="article-header">
+            <p class="article-category">PROJECT / 网页与数据</p>
+            <h1>整合包档案馆<span class="period">.</span></h1>
+            <p class="article-deck">为一台 Minecraft 模组服务器整理九天的游玩数据，经过采集、清洗和页面制作，把记录放进一个可扩展的档案站。</p>
+            <p class="article-byline">xte12329 · 2026.10</p>
+          </header>
+          <div class="article-body">
+            <h2>项目概览</h2>
+            <p>我搭建并维护了一台 Minecraft 模组服务器，供三名玩家游玩。服务器运行九天后，我想把一些能回看的记录整理出来：谁挖了多少方块、哪天最热闹、任务推进到哪一章。</p>
+            <p>于是有了「整合包档案馆」：一个静态网站，主页汇总游玩过的整合包，每个整合包有自己的战报页。目前先收录了一次游玩记录。</p>
+            <p>网站开发由我主导：需求定义、数据源勘察、技术选型、方案设计和结果验收由我完成；编码实现借助 AI 协作，我负责提出约束、审阅产出并逐项验证。三名玩家参与了游玩，没有参与网站开发。</p>
+
+            <figure class="article-figure">
+              <img src="../../../assets/projects/modpack-archive/01-portal-hero.jpg" alt="整合包档案馆主页：深色背景上显示站名、统计数字，以及科技、魔法、战斗等主题卡片" width="1200" height="750" loading="lazy" />
+              <figcaption>门户主页。深色底 + 像素素材，统计数字从 0 滚动到目标值。</figcaption>
+            </figure>
+
+            <h2>问题与约束</h2>
+            <p>动手之前，有四个绕不开的限制。</p>
+            <ul class="article-points">
+              <li><strong>现成面板用不上。</strong>服务端是 Forge 模组服，不是 Paper/Spigot，常见的插件式统计面板无法直接安装。数据要从存档和日志中提取。</li>
+              <li><strong>数据散在五个地方。</strong>原版统计在 <code>world/stats/*.json</code>；聊天与事件在九天共 28 MB 的控制台日志里，GBK 编码；任务进度是 FTB Quests 的 SNBT 文件；还有聊天机器人的行为记录。</li>
+              <li><strong>不增加新费用。</strong>使用已有的云服务器和家里的一台电脑，没有额外采购。</li>
+              <li><strong>有隐私边界。</strong>日志里含三个人的聊天记录，公开之前必须自己划清哪些能放出去。</li>
+            </ul>
+
+            <h2>我的工作</h2>
+            <p><strong>一、摸清数据源。</strong>逐个打开文件确认格式，判断哪些能读、哪些读不了。这一步踩的坑最多，后面单独说。</p>
+            <p><strong>二、写采集脚本。</strong>用 Python 从存档和日志里抽数据——玩家统计、每日活跃、成就时间线、任务进度——归一到一份 JSON，作为页面的唯一数据源。</p>
+            <p><strong>三、做前端。</strong>门户页加战报页，纯静态 HTML/CSS/JS，没有构建步骤，不依赖任何外部 CDN。</p>
+            <p><strong>四、部署。</strong>服务器上用 nginx 提供 HTTPS，域名签 Let's Encrypt 证书。</p>
+
+            <figure class="article-figure">
+              <img src="../../../assets/projects/modpack-archive/02-portal-themes.jpg" alt="主题图鉴区块：科技、魔法、战斗、探索、生活五张卡片，每张配一张由九个物品图标拼成的像素图标" width="1200" height="750" loading="lazy" />
+              <figcaption>主题图鉴。每张图标由该主题下九个代表物品的原始像素贴图拼成。</figcaption>
+            </figure>
+
+            <h2>关键选择</h2>
+            <p><strong>选择一：门户加自包含子页面，而不是做成一整页。</strong></p>
+            <p>我们大概率还会玩下一个整合包。如果所有内容写死在一页里，下次就得动结构。所以定成：主页从 <code>data/packs.json</code> 读清单渲染卡片，每个整合包是自包含目录，带自己的样式、脚本和数据。</p>
+            <p>结果是<strong>加新整合包只要两步</strong>：把战报页丢进 <code>packs/&lt;名字&gt;/</code>，再往 JSON 数组里加一条记录。主页一行代码都不用改。</p>
+            <p>代价是每个子页面各带一份图表库和字体，多了几十 KB；换来的是子页面能单独交付、互不影响。</p>
+
+            <p><strong>选择二：素材不从网上找，直接从模组文件里抽。</strong></p>
+            <p>网站需要与所玩的模组保持一致。网上找图来源不易追溯，风格也难统一。</p>
+            <p>我改成从本机 188 个模组文件里抽原始像素贴图：每个主题挑九个代表物品，拼成一张九宫格图标。好处是来源可追溯、风格统一，中文名还能直接取模组自带的官方译名。放大只用最近邻插值，保住像素的锐利边缘。</p>
+
+            <h2>验证与结果</h2>
+            <ul class="article-points">
+              <li><strong>站点规模：</strong>项目交付记录为 156 个文件、约 0.9 MB。页面资源由站点自身提供，不依赖第三方 CDN。</li>
+              <li><strong>浏览器检查：</strong>自动化脚本在 1440 / 820 / 390 三档宽度下均无横向滚动，控制台 0 报错，「进入战报」与「返回档案馆」双向跳转正常。</li>
+              <li><strong>数据核对：</strong>页面数字直接从存档与日志算出——9 天、3 名玩家、累计在线 158.7 小时、主线任务 284 / 491。</li>
+              <li><strong>公开展示：</strong>本文只放脱敏后的页面截图，不提供可识别该整合包的实例链接。</li>
+            </ul>
+            <p><strong>局限：</strong>目前只有一个整合包，「多整合包」的设计还没被真实使用检验过；数据是脚本一次性生成的快照，不是实时更新。</p>
+
+            <figure class="article-figure article-figure--phone">
+              <img src="../../../assets/projects/modpack-archive/05-portal-mobile.jpg" alt="手机宽度下的主页：标题、统计格子与主题卡片纵向排列" width="780" height="1688" loading="lazy" />
+              <figcaption>390px 宽度下的布局。卡片纵向堆叠，统计格子改为两列。</figcaption>
+            </figure>
+
+            <h2>复盘</h2>
+            <p>三个坑值得单独记下来：</p>
+            <ul class="article-points">
+              <li><strong>1.17 之后实体不在 <code>world/region/</code> 了。</strong>我按老经验扫区块文件，扫出 17.8 万个区块、实体数为 0。查了才知道实体挪到了独立的 <code>world/entities/</code>。</li>
+              <li><strong>日志里的玩家名长度不可控。</strong>解析聊天记录的正则我限了名字最多 16 个字符，结果带模组称号的名字有 31 个字符，整行被静默丢弃——症状是「只能看到某一个人的发言」。</li>
+              <li><strong>中文编码。</strong>日志是 GBK，脚本是 UTF-8，Windows 命令行又是另一套。这类问题不会报错，只会让你看到乱码然后怀疑自己。</li>
+            </ul>
+            <p><strong>下一步：</strong>把一次性快照改成可按时间增量更新，这样主页能显示「最近一次更新」，而不是一个写死的统计周期。</p>
+
+          </div>
+        </article>
+        <nav class="article-next" aria-label="文章导航"><a href="../../../#writing">← 查看全部文章</a><a href="../../learning-journey/">阅读我的学习经历 →</a></nav>
+      </main>
+      <footer class="site-footer"><span>© 2026 xte12329</span><span>持续学习，持续创造。</span><a href="../../../">返回首页 ↑</a></footer>
+    </div>
+  </body>
+</html>

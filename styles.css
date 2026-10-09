@@ -110,6 +110,7 @@ h2 { margin-bottom: 52px; font-size: clamp(36px, 4vw, 58px); line-height: 1.18; 
 .writing-card { display: flex; flex-direction: column; min-height: 252px; padding: 29px 31px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); transition: transform .25s, background .25s, border-color .25s; }
 .writing-card:hover { transform: translateY(-5px); background: var(--surface-hover); border-color: rgba(185,241,139,.32); }
 .writing-card-featured { grid-column: 1 / -1; min-height: 235px; background: linear-gradient(115deg, #223647 0%, #192c39 52%, #1a2735 100%); border-color: rgba(130,219,210,.26); }
+.writing-card-featured-modpack { background: linear-gradient(115deg, #30243f 0%, #22283d 52%, #1a2735 100%); border-color: rgba(179,143,226,.32); }
 .writing-type { color: var(--cyan); font: 10px 'DM Mono', monospace; letter-spacing: .12em; }
 .writing-card h3 { margin: 22px 0 12px; font-size: clamp(21px, 2.3vw, 29px); letter-spacing: -.04em; }
 .writing-card p { max-width: 440px; margin-bottom: 23px; color: var(--muted); font-size: 13px; line-height: 1.9; }
