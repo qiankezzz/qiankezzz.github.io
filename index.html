@@ -1,253 +1,170 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Sukuraba's Blog - Tech &amp; Art Journey</title><meta name="author" content="Sukuraba"><meta name="copyright" content="Sukuraba"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Personal blog about computer science research, internships, projects, and AI-generated artwork">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sukuraba&#39;s Blog">
-<meta property="og:url" content="https://qiankezzz.github.io/index.html">
-<meta property="og:site_name" content="Sukuraba&#39;s Blog">
-<meta property="og:description" content="Personal blog about computer science research, internships, projects, and AI-generated artwork">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://qiankezzz.github.io/images/avatar.png">
-<meta property="article:author" content="Sukuraba">
-<meta property="article:tag" content="computer science, AI art, research, internship, projects, sukuraba, tech, blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://qiankezzz.github.io/images/avatar.png"><script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Sukuraba's Blog",
-  "alternateName": [
-    "Tech & Art Journey",
-    "qiankezzz.github.io"
-  ],
-  "url": "https://qiankezzz.github.io/"
-}</script><link rel="shortcut icon" href="/images/avatar.png"><link rel="canonical" href="https://qiankezzz.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101725" />
+    <meta name="description" content="xte12329 的个人主页：深圳大学计算机技术专业硕士，记录学习、实践与文章。" />
+    <title>xte12329 · 个人主页</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到主要内容</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="xte12329，返回首页">
+          <span class="brand-mark" aria-hidden="true">x<span>·</span></span>
+          <span>xte12329</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="#about">关于</a>
+          <a href="#journey">学习与实践</a>
+          <a href="#writing">文章</a>
+          <a href="#contact">联系</a>
+        </nav>
+        <a class="header-link" href="https://github.com/qiankezzz" target="_blank" rel="noopener noreferrer" aria-label="访问 GitHub 主页，新窗口打开">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </header>
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
-
-      const theme = saveToLocal.get('theme')
-    
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: true,
-    post: true
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: {"limitCount":50,"languages":{"author":"作者: Sukuraba","link":"链接: ","source":"来源: Sukuraba's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyloadPlugin: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Sukuraba\'s Blog',
-  isHighlightShrink: false,
-  isToc: false,
-  pageType: 'home'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
-  const $loadingBox = document.getElementById('loading-box')
-  const $body = document.body
-  const preloader = {
-    endLoading: () => {
-      if ($loadingBox.classList.contains('loaded')) return
-      $body.style.overflow = ''
-      $loadingBox.classList.add('loaded')
-    },
-    initLoading: () => {
-      $body.style.overflow = 'hidden'
-      $loadingBox.classList.remove('loaded')
-    }
-  }
-
-  preloader.initLoading()
-
-  if (document.readyState === 'complete') {
-    preloader.endLoading()
-  } else {
-    window.addEventListener('load', preloader.endLoading)
-    document.addEventListener('DOMContentLoaded', preloader.endLoading)
-    // Add timeout protection: force end after 7 seconds
-    setTimeout(preloader.endLoading, 7000)
-  }
-
-  if (false) {
-    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
-    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
-  }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E8%89%BA%E6%9C%AF/"><i class="fa-fw fas fa-palette"></i><span> AI艺术</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> 项目展示</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/bg-main.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Sukuraba's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF/"><i class="fa-fw fas fa-code"></i><span> 技术文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E8%89%BA%E6%9C%AF/"><i class="fa-fw fas fa-palette"></i><span> AI艺术</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-project-diagram"></i><span> 项目展示</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Sukuraba's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/qiankezzz" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:linjunyu233@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览"><img class="post-bg" src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画作品集 - 近期创作总览"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览">AI绘画作品集 - 近期创作总览</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-16T10:00:00.000Z" title="发表于 2024-09-16 18:00:00">2024-09-16</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:14:49.967Z" title="更新于 2025-09-16 12:14:49">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/">作品集</a></span></div><div class="content">AI绘画作品集角色系列Sukuraba Ema 系列基于LORA训练的原创角色系列 Anan 系列 Hiro 系列 Juzi 系列 Meru 系列 Noa 系列 </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema"><img class="post-bg" src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 绘画作品集 - Sukuraba Ema"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema">AI 绘画作品集 - Sukuraba Ema</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-16T04:00:00.000Z" title="发表于 2024-09-16 12:00:00">2024-09-16</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:10:07.632Z" title="更新于 2025-09-16 12:10:07">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Sukuraba-Ema/">Sukuraba Ema</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E5%AD%97%E8%89%BA%E6%9C%AF/">数字艺术</a></span></div><div class="content">Sukuraba Ema 系列 AI 绘画作品这里展示我使用 AI 技术创作的 Sukuraba Ema 系列作品。基于以往画师的画风训练的LORA以及已有角色LORA完成。 作品展示头像系列 (1024x1024)这些作品主要用作头像或个人形象展示：  竖版作品系列 (960x1536)这些作品采用竖版构图，适合移动端展示：  这些作品是我第一次创作的尝试。希望通过这种方式展现 AI 与人类创意的完美结合。 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列"><img class="post-bg" src="/gallery/00017-1366028681.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Noa 角色系列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列">AI绘画 - Noa 角色系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-10T05:40:00.000Z" title="发表于 2024-09-10 13:40:00">2024-09-10</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:14:34.204Z" title="更新于 2025-09-16 12:14:34">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Noa/">Noa</a></span></div><div class="content">Noa 角色系列 </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列"><img class="post-bg" src="/gallery/00001-2874858076.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Sheri 角色系列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列">AI绘画 - Sheri 角色系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-10T05:20:00.000Z" title="发表于 2024-09-10 13:20:00">2024-09-10</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:33:55.550Z" title="更新于 2025-09-16 12:33:55">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Sheri/">Sheri</a></span></div><div class="content">Juzi 角色系列 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列"><img class="post-bg" src="/gallery/00039-587261749.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Anan 角色系列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列">AI绘画 - Anan 角色系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-09T07:00:00.000Z" title="发表于 2024-09-09 15:00:00">2024-09-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:13:39.861Z" title="更新于 2025-09-16 12:13:39">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Anan/">Anan</a></span></div><div class="content">Anan 角色系列 </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/09/09/ai-art-meru-series/" title="AI绘画 - Meruru 角色系列"><img class="post-bg" src="/gallery/00000-1638622420.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Meruru 角色系列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/09/ai-art-meru-series/" title="AI绘画 - Meruru 角色系列">AI绘画 - Meruru 角色系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-09T06:15:00.000Z" title="发表于 2024-09-09 14:15:00">2024-09-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:21:19.750Z" title="更新于 2025-09-16 12:21:19">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Meru/">Meru</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a></span></div><div class="content">Meru 角色系列 </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/09/08/ai-art-hiro-series/" title="AI绘画 - Hiro 角色系列"><img class="post-bg" src="/gallery/00008-1398684863.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Hiro 角色系列"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/09/08/ai-art-hiro-series/" title="AI绘画 - Hiro 角色系列">AI绘画 - Hiro 角色系列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-08T03:20:00.000Z" title="发表于 2024-09-08 11:20:00">2024-09-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-16T04:13:52.426Z" title="更新于 2025-09-16 12:13:52">2025-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI%E8%89%BA%E6%9C%AF/">AI艺术</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BB%98%E7%94%BB/">AI绘画</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/">角色设计</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hiro/">Hiro</a></span></div><div class="content">Hiro 角色系列 </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Sukuraba</div><div class="author-info-description">技术与艺术的融合者<br>Computer Science Researcher & AI Artist</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qiankezzz"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/qiankezzz" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:linjunyu233@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的技术与艺术世界！这里分享计算机科学研究心得和AI艺术创作。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览"><img src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画作品集 - 近期创作总览"/></a><div class="content"><a class="title" href="/2024/09/16/ai-art-gallery-overview/" title="AI绘画作品集 - 近期创作总览">AI绘画作品集 - 近期创作总览</a><time datetime="2024-09-16T10:00:00.000Z" title="发表于 2024-09-16 18:00:00">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema"><img src="/gallery/00004-4277946308.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI 绘画作品集 - Sukuraba Ema"/></a><div class="content"><a class="title" href="/2024/09/16/ai-artwork-collection/" title="AI 绘画作品集 - Sukuraba Ema">AI 绘画作品集 - Sukuraba Ema</a><time datetime="2024-09-16T04:00:00.000Z" title="发表于 2024-09-16 12:00:00">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列"><img src="/gallery/00017-1366028681.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Noa 角色系列"/></a><div class="content"><a class="title" href="/2024/09/10/ai-art-noa-series/" title="AI绘画 - Noa 角色系列">AI绘画 - Noa 角色系列</a><time datetime="2024-09-10T05:40:00.000Z" title="发表于 2024-09-10 13:40:00">2024-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列"><img src="/gallery/00001-2874858076.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Sheri 角色系列"/></a><div class="content"><a class="title" href="/2024/09/10/ai-art-juzi-series/" title="AI绘画 - Sheri 角色系列">AI绘画 - Sheri 角色系列</a><time datetime="2024-09-10T05:20:00.000Z" title="发表于 2024-09-10 13:20:00">2024-09-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列"><img src="/gallery/00039-587261749.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI绘画 - Anan 角色系列"/></a><div class="content"><a class="title" href="/2024/09/09/ai-art-anan-series/" title="AI绘画 - Anan 角色系列">AI绘画 - Anan 角色系列</a><time datetime="2024-09-09T07:00:00.000Z" title="发表于 2024-09-09 15:00:00">2024-09-09</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            
+      <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> PERSONAL SPACE / 2026</p>
+            <h1 id="hero-title">你好，我是<br /><span>xte12329<span class="period">.</span></span></h1>
+            <p class="hero-lead">深圳大学 · 计算机技术专业硕士</p>
+            <p class="hero-description">这里记录我的学习、实践与创作。内容会随着新的探索持续更新，也欢迎你从这一页开始认识我。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#journey">了解我的经历 <span aria-hidden="true">↗</span></a>
+              <a class="button button-text" href="#contact">与我联系 <span aria-hidden="true">→</span></a>
+            </div>
           </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI%E8%89%BA%E6%9C%AF/"><span class="card-category-list-name">AI艺术</span><span class="card-category-list-count">7</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Sukuraba-Ema/" style="font-size: 1.1em; color: #999">Sukuraba Ema</a> <a href="/tags/Meru/" style="font-size: 1.1em; color: #999">Meru</a> <a href="/tags/%E6%95%B0%E5%AD%97%E8%89%BA%E6%9C%AF/" style="font-size: 1.1em; color: #999">数字艺术</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.5em; color: #99a9bf">AI绘画</a> <a href="/tags/%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1/" style="font-size: 1.3em; color: #99a1ac">角色设计</a> <a href="/tags/Anan/" style="font-size: 1.1em; color: #999">Anan</a> <a href="/tags/Sheri/" style="font-size: 1.1em; color: #999">Sheri</a> <a href="/tags/Hiro/" style="font-size: 1.1em; color: #999">Hiro</a> <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" style="font-size: 1.1em; color: #999">作品集</a> <a href="/tags/Noa/" style="font-size: 1.1em; color: #999">Noa</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>归档</span>
-      
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-grid"></div>
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-core"><span>X</span></div>
+            <span class="art-label art-label-top">01 / EXPLORE</span>
+            <span class="art-label art-label-bottom">BUILD · LEARN · CREATE</span>
+            <span class="art-plus art-plus-one">+</span>
+            <span class="art-plus art-plus-two">+</span>
+          </div>
+          <div class="hero-index" aria-hidden="true"><span>SCROLL TO EXPLORE</span><span class="index-line"></span><span>↓</span></div>
+        </section>
+
+        <section class="section about-section" id="about" aria-labelledby="about-title">
+          <div class="section-heading">
+            <p class="section-number">01 / ABOUT</p>
+            <h2 id="about-title">关于我<span class="period">.</span></h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-intro">
+              <p class="about-statement">在学习中提出问题，<br />在实践中寻找答案。</p>
+              <a class="avatar-link" href="https://github.com/qiankezzz" target="_blank" rel="noopener noreferrer" aria-label="查看 qiankezzz 的 GitHub 主页，新窗口打开">
+                <img src="assets/github-avatar.png" alt="xte12329 的 GitHub 卡通头像" width="512" height="512" />
+                <span>GITHUB AVATAR<br />qiankezzz ↗</span>
+              </a>
+            </div>
+            <div class="about-details">
+              <p>本科阶段学习大数据管理与应用，目前在深圳大学攻读计算机技术硕士。这里整理我的学习过程、实践记录与创作作品。</p>
+              <div class="info-list">
+                <div><span>当前身份</span><strong>硕士研究生</strong></div>
+                <div><span>所在学校</span><strong>深圳大学</strong></div>
+                <div><span>硕士专业</span><strong>计算机技术</strong></div>
+                <div><span>本科专业</span><strong>大数据管理与应用</strong></div>
+              </div>
+              <div class="focus-area" aria-label="目前的学习与兴趣方向">
+                <span>目前的学习与兴趣</span>
+                <div class="focus-tags"><span>计算机技术</span><span>网页设计与开发</span></div>
+                <small>具体研究方向与技能清单待补充。</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section journey-section" id="journey" aria-labelledby="journey-title">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="section-number">02 / JOURNEY</p>
+              <h2 id="journey-title">学习与实践<span class="period">.</span></h2>
+            </div>
+            <p class="heading-note">从正在发生的事开始记录</p>
+          </div>
+          <div class="journey-grid">
+            <article class="journey-card">
+              <span class="card-index">01</span>
+              <div class="card-icon" aria-hidden="true">⌁</div>
+              <p class="card-kicker">ACADEMIC</p>
+              <h3>计算机技术硕士学习</h3>
+              <p>在深圳大学继续学习计算机技术，逐步积累理论知识与实践经验。</p>
+              <span class="card-foot">深圳大学 <span aria-hidden="true">↗</span></span>
+            </article>
+            <article class="journey-card">
+              <span class="card-index">02</span>
+              <div class="card-icon" aria-hidden="true">∑</div>
+              <p class="card-kicker">UNDERGRADUATE</p>
+              <h3>大数据管理与应用本科</h3>
+              <p>在华南农业大学学习数据结构、计算机网络、模式识别与机器学习等课程。</p>
+              <span class="card-foot">华南农业大学 <span aria-hidden="true">↗</span></span>
+            </article>
+            <article class="journey-card">
+              <span class="card-index">03</span>
+              <div class="card-icon" aria-hidden="true">✳</div>
+              <p class="card-kicker">RESEARCH & BUILD</p>
+              <h3>研究与开发实践</h3>
+              <p>参与时间序列研究及应用开发，在模型实验、界面实现和计算机视觉任务中积累经验。</p>
+              <span class="card-foot">更多经历见下方文章 <span aria-hidden="true">↗</span></span>
+            </article>
+          </div>
+          <p class="section-footnote">更多项目展示与研究方向将在确认后补充。</p>
+        </section>
+
+        <section class="section writing-section" id="writing" aria-labelledby="writing-title">
+          <div class="section-heading section-heading-row">
+            <div>
+              <p class="section-number">03 / WRITING</p>
+              <h2 id="writing-title">文章与记录<span class="period">.</span></h2>
+            </div>
+            <p class="heading-note">从经历中留下可回看的内容</p>
+          </div>
+          <div class="writing-grid">
+            <a class="writing-card writing-card-featured" href="writing/projects/creator-toolbox/">
+              <span class="writing-type">PROJECT NOTES</span>
+              <h3>Creator Toolbox</h3>
+              <p>记录一个本地 AI 绘画作品管理工具的设计与实践：从图库整理、检索，到导入性能和网络链路的排查。</p>
+              <span class="writing-link">阅读项目文章 <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="writing-card" href="writing/learning-journey/">
+              <span class="writing-type">LEARNING NOTES</span>
+              <h3>我的学习经历</h3>
+              <p>从大数据管理与应用的本科训练，到计算机技术硕士阶段的学习与实践。</p>
+              <span class="writing-link">阅读全文 <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="writing-card" href="writing/xiaoheihe-operations/">
+              <span class="writing-type">COMMUNITY</span>
+              <h3>在小黑盒做内容运营</h3>
+              <p>以“小小の光”为昵称，记录约一年的内容发布与社区运营经历。</p>
+              <span class="writing-link">阅读全文 <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+          <p class="section-number">04 / CONTACT</p>
+          <h2 id="contact-title">保持联系<span class="period">.</span></h2>
+          <p>如果你想交流学习、技术或创作，欢迎通过以下方式找到我。</p>
+          <div class="contact-links">
+            <a class="contact-item" href="mailto:linjunyu233@gmail.com"><span>EMAIL</span><strong>linjunyu233@gmail.com</strong><span aria-hidden="true">↗</span></a>
+            <a class="contact-item" href="https://github.com/qiankezzz" target="_blank" rel="noopener noreferrer"><span>GITHUB</span><strong>github.com/qiankezzz</strong><span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>© 2026 xte12329</span>
+        <span>持续学习，持续创造。</span>
+        <a href="#top">回到顶部 ↑</a>
+      </footer>
     </div>
-  
-    <ul class="card-archive-list">
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2024/09/">
-            <span class="card-archive-list-date">
-              九月 2024
-            </span>
-            <span class="card-archive-list-count">7</span>
-          </a>
-        </li>
-      
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-16T04:37:04.335Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2025 By Sukuraba</span></div><div class="footer_custom_text">技术改变世界，艺术温暖人心</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: str => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: subtitleType => {
-    if (true) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
-    }
-  },
-  processSubtitle: (content, extraContents = []) => {
-    if (true) {
-      const sub = [].slice()
-
-      if (extraContents.length > 0) {
-        sub.unshift(...extraContents)
-      }
-
-      if (typeof content === 'string') {
-        sub.unshift(content)
-      } else if (Array.isArray(content)) {
-        sub.unshift(...content)
-      }
-
-      sub.length > 0 && typedJSFn.init(sub)
-    } else {
-      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
-        (Array.isArray(content) && content.length > 0 ? content[0] : '')
-    }
-  }
-}
-btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
-</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+  </body>
+</html>
