@@ -1,16 +1,17 @@
 # xte12329 个人主页
 
-这是一个使用 HTML 和 CSS 构建的静态个人主页，部署在 GitHub Pages。
+使用原生 HTML 和 CSS 编写的静态个人主页，部署在 GitHub Pages。没有前端框架或构建步骤。
 
-## 页面内容
+## 目录结构
 
-- 个人简介、学习与实践经历、联系方式。
-- Creator Toolbox、整合包档案馆两篇项目文章，以及学习经历文章和小黑盒内容运营记录。
-- 旧博客文章路径保留作归档；旧 `/about/` 与 `/projects/` 地址跳转到新版对应栏目。
+- `index.html`、`styles.css`：主页结构与样式。
+- `article.css`：文章页共用样式。
+- `writing/`：四篇文章，包括 Creator Toolbox、整合包档案馆、学习经历和小黑盒运营。
+- `assets/`：主页头像、首屏图及文章配图。
+- `about/`、`projects/`：旧地址跳转到新版主页对应栏目。
+- `docs/`：项目文章撰写说明。
 
-站点公开身份使用 `xte12329`。头像取自 GitHub 账号当前公开头像，不使用简历照片。小黑盒文章中的粉丝及获赞收藏数注明了读取日期。
-
-新版页面参考本人提供的 UmbrellaBlog 站点在照片首屏、半透明导航和浅色内容卡片上的布局方式，HTML 与 CSS 均在本仓库独立实现。首屏背景是原创 AI 生成的校园氛围图，并非深圳大学实景照片。
+旧博客生成的归档、分类、标签和 AI 绘画页面已从当前项目移除。公开身份为 `xte12329`；首屏图片为原创生成的校园氛围图，不是深圳大学实景。
 
 ## 本地预览
 
@@ -20,4 +21,4 @@
 python -m http.server 8000
 ```
 
-访问 `http://localhost:8000/`。新文章页面可参考 `writing/learning-journey/index.html`；项目文章写作要求见 `docs/项目作品文章撰写说明.md`。
+然后访问 `http://localhost:8000/`。新增文章可参考 `writing/learning-journey/index.html`，项目文章说明见 `docs/项目作品文章撰写说明.md`。
